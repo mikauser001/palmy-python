@@ -33,5 +33,6 @@
 <br>
 
 <h2 id="policy">Contribute policy</h2>
-<br><h2 id="issues">Issues</h2>
+<br>
+<h2 id="issues">Issues</h2>
 <br>
