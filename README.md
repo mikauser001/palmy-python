@@ -1,4 +1,4 @@
-# 🌴palmy-python
+
 <h6>This library allows you to quickly and easily use the <a href=https://palmy-investing/api>Palmy-investing Web API</a> via Python.</h6>
 
 <h2 style="font-size:1.2rem;">Table of contents</h2>
