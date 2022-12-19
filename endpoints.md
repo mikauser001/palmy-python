@@ -3,10 +3,10 @@ title: "Endpoints"
 permalink: /endpoint
 
 # Endpoints
-### Setting an endpoint via 'path'
 Each path represents the base url. So one PalmyClient instance has one path <br>
   Anyways that does not influence individualisation, since you have full access on the base url.
   See <a href="mikauser001.github.io/palmy-python/base#methods">request methods</a><br>
+### Setting an endpoint via 'path'
 
 ```
 from palmy_python import PalmyClient
