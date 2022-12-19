@@ -1,6 +1,6 @@
 layout: page
 title: "Endpoints"
-permalink: /endpoints
+permalink: /endpoint
 
 # Endpoints
 ### Setting an endpoint via 'path'
