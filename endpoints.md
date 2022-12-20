@@ -17,7 +17,7 @@ client = PalmyClient(
 )
 ````
 ### Available paths
-#### moin j25
+
 <table>
   <tr>
     <th>endpoint</th>
