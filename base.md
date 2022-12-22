@@ -141,7 +141,7 @@ print(x.get())
 >> 200 OK
 ```
 
-###Controllbility
+### Controllbility
 If we set path = stocks we still can access get() the same way, but get_format method redirects to format_stock_response.
 So as you can see the get_format method can be a nice way to control the formats based on the path you've specified
 
