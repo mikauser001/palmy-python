@@ -56,3 +56,89 @@ reponse_with_kwargs = client.get(**my_rules_kwargs)
 #### Response
 The response is in json format. If you want to change the way the response is handled overwrite the PalmyClient.format() method
 
+## Create your own Client
+#### You often like to initiate your own Client. Here is an example:
+
+```python
+
+class MyResponseBaseClient(PalmyClient):
+    """A test client for handling requests and responses"""
+
+    path = "quotes"
+    token = "e1348bba9d13df0baf11834b26406b063b8c825f2ba3c054a4da4d96534a473a"
+
+    def __init__(self):
+        """
+        Call the Score via super(). For earlier versions use:
+        super(MySubClass, self).__init__(self.components, self.math_operators, self.stocks)
+        """
+        super().__init__(self.path, self.token)
+```
+### Overwriting methods
+#### Since this is a 1:1 copy you will likely expand the default class functionality.
+#### Lets create a function that calculates the averages eps and pe ratio values through .format()
+
+````python
+
+   def get_format(self, *args):
+        """Handle your different format methods"""
+        if self.path == "quotes":
+            return self.format(*args)
+        elif self.path == "stocks":
+            return self.format_stock_response(*args)
+
+    @staticmethod
+    def format(response, meta=False):
+
+        # As a simple example lets say you'd like to exclusively
+        # work with the following key; eps, pe_ratio and get the average of both
+
+        response = PalmyClient.format(response, meta)
+
+        eps_values = []
+        pe_ratio_values = []
+
+        # Iterate the data and append each value. Ignore None entries
+        for items in response:
+            eps = items.get("eps")
+            pe_ratio = items.get("pe_ratio")
+            if eps:
+                eps_values.append(float(eps))
+            if pe_ratio:
+                pe_ratio_values.append(float(pe_ratio))
+
+        # Work with the iterated data
+        len_eps = len(eps_values)
+        len_pe = len(pe_ratio_values)
+        quote_format = {
+            "averagePeRatio": sum(pe_ratio_values) / len_pe,
+            "averageEps": sum(eps_values) / len_eps,
+            "n_eps": len_eps,
+            "n_pg_ratio": len_pe,
+        }
+        return quote_format
+
+    def format_stock_response(self, *args):
+        """
+        New method for handling the path 'stocks'.
+        You can create for each endpoint multiple and handle it via get_format
+        """
+        stocks_format = self.path
+        return stocks_format
+```
+#### Lets print the results into the console
+
+````python
+x = MyResponseBaseClient()
+x.path = "quotes"
+print(x.get())
+# In my case this returned
+quote_format = {'averagePeRatio': 31.074074074074073, 'averageEps': 5.98196, 'n_eps': 100, 'n_pg_ratio': 54}
+# BUT I am only in testing stage, so your result would include 100x more data to query against
+x.path = "stocks"
+print(x.get())
+# If we set path = stocks we still can access get() the same way, but get_format redirects to format_stock_response and
+# the return would be 'stocks'
+# So as you can see the format method can be a nice way to control the workflow when changing the endpoints of your class
+```
+
