@@ -152,9 +152,9 @@ Each Score object represents a Palmy Score. The method you'd like to use doesnt 
 ## Creating an instance
 ```python
 
-MyScore = Score(
-    components=["IncomeCik", "RatiosDebtRatio", 
-    "IncomeEps", "Income", "IncomeSymbol"],
+MyIncomeScore = Score(
+    components=["IncomeCik", "IncomeRevenue", 
+    "IncomeEps", "IncomeEbitdaRatio", "IncomeSymbol"],
     math_operators=("+", "-", "/", "*"),
     stocks=["MSFT", "AAPL"]
 )
