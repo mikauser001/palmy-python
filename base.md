@@ -131,12 +131,12 @@ def format(response, meta=False):
 If we use .get() with the path "quotes" we receive a dictionary with our averages and their amount of data
 
 ```
-x = MyResponseBaseClient()
-x.path = "quotes"
-print(x.get())
+cli = MyResponseBaseClient()
+cli.path = "quotes"
+print(cli.get())
 >> {'averagePeRatio': 31.074074074074073, averageEps': 5.98196, 'n_eps': 100,'n_pg_ratio': 54}
-x.path = "stocks"
-print(x.get())
+cli.path = "stocks"
+print(cli.get())
 >> 200 OK
 ```
 
@@ -159,4 +159,11 @@ MyIncomeScore = Score(
     stocks=["MSFT", "AAPL"]
 )
 
+# Reuse the Client from above
+cli.path = 'private-scores'
+create_score = cli.create(
+  score=MyIncomeScore
+)
+print(create_score)
+>> 201 - Successfully created the object
 ```
