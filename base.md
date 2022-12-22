@@ -138,7 +138,7 @@ quote_format = {'averagePeRatio': 31.074074074074073, 'averageEps': 5.98196, 'n_
 x.path = "stocks"
 print(x.get())
 # If we set path = stocks we still can access get() the same way, but get_format redirects to format_stock_response and
-# the return would be 'stocks'
+# the return would be 'stocks' (See format_stock_response)
 # So as you can see the format method can be a nice way to control the workflow when changing the endpoints of your class
 
 ```
