@@ -8,7 +8,7 @@ The client class "PalmyClient" is used for handling API requests and response. F
 ## Create an instance
 #### Before working with the libary, please make sure to have a valid token. 
 
-This is how you're token should look like (64 places)
+This is how you're token should look like (64 places)<br>
 example_token = 'a58fb2e039ab9a0e2b8b55126d20d8fb9c6926ce05c107c38d8072fe51a69663'
 
 ```python
