@@ -89,8 +89,8 @@ def get_format(self, *args):
 @staticmethod
 def format(response, meta=False):
 
-  # As a simple example lets say you'd like to exclusively
-  # work with the following key; eps, pe_ratio and get the average of both
+  # Simple example of calculating stock 
+  # averages for eps and pe_ratios
 
   response = PalmyClient.format(response, meta)
 
