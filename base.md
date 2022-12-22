@@ -117,13 +117,14 @@ def format(response, meta=False):
   }
   return quote_format
 
-def format_stock_response(self, *args):
+@staticmethod
+def format_stock_response(response, *args, **kwargs):
   """
   New method for handling the path 'stocks'.
   You can create for each endpoint multiple and handle it via get_format
   """
-  stocks_format = self.path
-  return stocks_format
+  return response.status_code
+  
 ```
 #### Lets print the results into the console
 
@@ -132,14 +133,12 @@ def format_stock_response(self, *args):
 x = MyResponseBaseClient()
 x.path = "quotes"
 print(x.get())
-# In my case this returned
-quote_format = {'averagePeRatio': 31.074074074074073, 'averageEps': 5.98196, 'n_eps': 100, 'n_pg_ratio': 54}
-# BUT I am only in testing stage, so your result would include 100x more data to query against
+>> {'averagePeRatio': 31.074074074074073, 'averageEps': 5.98196, 'n_eps': 100, 'n_pg_ratio': 54}
 x.path = "stocks"
 print(x.get())
-# If we set path = stocks we still can access get() the same way, but get_format redirects to format_stock_response and
-# the return would be 'stocks' (See format_stock_response)
-# So as you can see the format method can be a nice way to control the workflow when changing the endpoints of your class
-
+>> 200 OK
 ```
+
+#### If we set path = stocks we still can access get() the same way, but get_format method redirects to format_stock_response.
+#### So as you can see the format method can be a nice way to control the workflow when changing the endpoints of your class
 
