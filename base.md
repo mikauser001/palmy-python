@@ -128,7 +128,8 @@ class MyResponseBaseClient(PalmyClient):
 ```
 #### Lets print the results into the console
 
-````python
+```python
+
 x = MyResponseBaseClient()
 x.path = "quotes"
 print(x.get())
@@ -140,5 +141,6 @@ print(x.get())
 # If we set path = stocks we still can access get() the same way, but get_format redirects to format_stock_response and
 # the return would be 'stocks'
 # So as you can see the format method can be a nice way to control the workflow when changing the endpoints of your class
+
 ```
 
