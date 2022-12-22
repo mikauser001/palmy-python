@@ -144,6 +144,8 @@ print(x.get())
 If we set path = stocks we still can access get() the same way, but get_format method redirects to format_stock_response.
 So as you can see the get_format method can be a nice way to control the formats based on the path you've specified
 
+<hr>
+
 # Score
 Each Score object represents a Palmy Score. The method you'd like to use doesnt matter. Therefore you can use your Score object to either update a known Score or create a new one. <b>The Score class should always help you to avoid plain error messages when sending an api put/post request.</b> Thats why a subclass of a Score comes with some risk. Before creating subclasses please go through <a href="">this section</a>.
 
