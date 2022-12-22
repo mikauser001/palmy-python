@@ -2,7 +2,7 @@ layout: page
 title: “Palmys API Client” 
 permalink: /client
 
-# Client
+# PalmyClient
 The client class "PalmyClient" is used for handling API requests and response. For data manipulation read about the <a href="https://mikauser001.github.io/palmy-python/handler#PalmyHandler">PalmyHandler</a>, but also the methods down below.
 
 ## Create an instance
