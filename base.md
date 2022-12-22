@@ -75,7 +75,7 @@ class MyResponseBaseClient(PalmyClient):
         super().__init__(self.path, self.token)
 ```
 ### Overwriting methods
-#### You will often expand the default class functionality. Lets create a function that calculates the averages eps and pe ratio values through .format(). You have to add them to the MyResponseBaseClient, or whatever your Client's name is.
+##### You will often expand the default class functionality. Lets create a function that calculates the averages eps and pe ratio values through .format(). You have to add them to the MyResponseBaseClient, or whatever your Client's name is.
 
 ```python
 
