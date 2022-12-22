@@ -79,51 +79,51 @@ class MyResponseBaseClient(PalmyClient):
 
 ```python
 
-   def get_format(self, *args):
-        """Handle your different format methods"""
-        if self.path == "quotes":
-            return self.format(*args)
-        elif self.path == "stocks":
-            return self.format_stock_response(*args)
+def get_format(self, *args):
+  """Handle your different format methods"""
+  if self.path == "quotes":
+      return self.format(*args)
+  elif self.path == "stocks":
+      return self.format_stock_response(*args)
 
-    @staticmethod
-    def format(response, meta=False):
+@staticmethod
+def format(response, meta=False):
 
-        # As a simple example lets say you'd like to exclusively
-        # work with the following key; eps, pe_ratio and get the average of both
+  # As a simple example lets say you'd like to exclusively
+  # work with the following key; eps, pe_ratio and get the average of both
 
-        response = PalmyClient.format(response, meta)
+  response = PalmyClient.format(response, meta)
 
-        eps_values = []
-        pe_ratio_values = []
+  eps_values = []
+  pe_ratio_values = []
 
-        # Iterate the data and append each value. Ignore None entries
-        for items in response:
-            eps = items.get("eps")
-            pe_ratio = items.get("pe_ratio")
-            if eps:
-                eps_values.append(float(eps))
-            if pe_ratio:
-                pe_ratio_values.append(float(pe_ratio))
+  # Iterate the data and append each value. Ignore None entries
+  for items in response:
+      eps = items.get("eps")
+      pe_ratio = items.get("pe_ratio")
+      if eps:
+          eps_values.append(float(eps))
+      if pe_ratio:
+          pe_ratio_values.append(float(pe_ratio))
 
-        # Work with the iterated data
-        len_eps = len(eps_values)
-        len_pe = len(pe_ratio_values)
-        quote_format = {
-            "averagePeRatio": sum(pe_ratio_values) / len_pe,
-            "averageEps": sum(eps_values) / len_eps,
-            "n_eps": len_eps,
-            "n_pg_ratio": len_pe,
-        }
-        return quote_format
+  # Work with the iterated data
+  len_eps = len(eps_values)
+  len_pe = len(pe_ratio_values)
+  quote_format = {
+      "averagePeRatio": sum(pe_ratio_values) / len_pe,
+      "averageEps": sum(eps_values) / len_eps,
+      "n_eps": len_eps,
+      "n_pg_ratio": len_pe,
+  }
+  return quote_format
 
-    def format_stock_response(self, *args):
-        """
-        New method for handling the path 'stocks'.
-        You can create for each endpoint multiple and handle it via get_format
-        """
-        stocks_format = self.path
-        return stocks_format
+def format_stock_response(self, *args):
+  """
+  New method for handling the path 'stocks'.
+  You can create for each endpoint multiple and handle it via get_format
+  """
+  stocks_format = self.path
+  return stocks_format
 ```
 #### Lets print the results into the console
 
