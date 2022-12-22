@@ -78,7 +78,7 @@ class MyResponseBaseClient(PalmyClient):
 #### Since this is a 1:1 copy you will likely expand the default class functionality.
 #### Lets create a function that calculates the averages eps and pe ratio values through .format()
 
-````python
+```python
 
    def get_format(self, *args):
         """Handle your different format methods"""
