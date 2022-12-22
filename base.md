@@ -152,9 +152,10 @@ Each Score object represents a Palmy Score. The method you'd like to use doesnt 
 ````python
 
 MyScore = Score(
-    components=["IncomeCik", "RatiosDebtRatio", "IncomeEps", "Income", "IncomeSymbol"],
+    components=["IncomeCik", "RatiosDebtRatio", 
+    "IncomeEps", "Income", "IncomeSymbol"],
     math_operators=("+", "-", "/", "*"),
     stocks=["MSFT", "AAPL"]
 )
 
-``
+```
