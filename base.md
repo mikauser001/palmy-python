@@ -3,7 +3,7 @@ title: “Palmys API Client”
 permalink: /client
 
 # Client
-The client class "PalmyClient" is used for handling API requests and response. For data manipulation read about the <a href="https://mikauser001.github.io/palmy-python/handler#PalmyHandler">PalmyHandler</a> or the format method down below.
+The client class "PalmyClient" is used for handling API requests and response. For data manipulation read about the <a href="https://mikauser001.github.io/palmy-python/handler#PalmyHandler">PalmyHandler</a>, but also the methods down below.
 
 ## Create an instance
 
@@ -57,7 +57,7 @@ reponse_with_kwargs = client.get(**my_rules_kwargs)
 The response is in json format. If you want to change the way the response is handled overwrite the PalmyClient.format() method
 
 ## Create your own Client
-#### You often like to initiate your own Client. Here is an example:
+You often like to initiate your own Client. Here is an example:
 
 ```python
 
@@ -69,13 +69,12 @@ class MyResponseBaseClient(PalmyClient):
 
     def __init__(self):
         """
-        Call the Score via super(). For earlier versions use:
-        super(MySubClass, self).__init__(self.components, self.math_operators, self.stocks)
+        Call PalmyClient via super()
         """
         super().__init__(self.path, self.token)
 ```
 ### Overwriting methods
-##### You will often expand the default class functionality. Lets create a function that calculates the averages eps and pe ratio values through .format(). You have to add them to the MyResponseBaseClient, or whatever your Client's name is.
+You will often expand the default class functionality. Lets create a function that calculates the averages eps and pe ratio values through .format(). You have to add them to the MyResponseBaseClient, or whatever your Client's name is.
 
 ```python
 
@@ -85,7 +84,14 @@ def get_format(self, *args):
       return self.format(*args)
   elif self.path == "stocks":
       return self.format_stock_response(*args)
-
+      
+@staticmethod
+def format_stock_response(response, *args, **kwargs):
+  """
+  New method for exclusively handling the 'stocks' path return format
+  """
+  return response.status_code
+  
 @staticmethod
 def format(response, meta=False):
 
@@ -97,7 +103,9 @@ def format(response, meta=False):
   eps_values = []
   pe_ratio_values = []
 
-  # Iterate the data and append each value. Ignore None entries
+  # Iterate the data and append each value.
+  # Ignore None entries
+  
   for items in response:
       eps = items.get("eps")
       pe_ratio = items.get("pe_ratio")
@@ -117,28 +125,23 @@ def format(response, meta=False):
   }
   return quote_format
 
-@staticmethod
-def format_stock_response(response, *args, **kwargs):
-  """
-  New method for handling the path 'stocks'.
-  You can create for each endpoint multiple and handle it via get_format
-  """
-  return response.status_code
-  
 ```
-#### Lets print the results into the console
+### GET request with your new client
+If we use .get() with the path "quotes" we receive a dictionary with our averages and their amount of data
 
 ```python
 
 x = MyResponseBaseClient()
 x.path = "quotes"
 print(x.get())
->> {'averagePeRatio': 31.074074074074073, 'averageEps': 5.98196, 'n_eps': 100, 'n_pg_ratio': 54}
+>> {'averagePeRatio': 31.074074074074073, averageEps': 5.98196, 'n_eps': 100,'n_pg_ratio': 54}
+
 x.path = "stocks"
 print(x.get())
 >> 200 OK
 ```
 
-#### If we set path = stocks we still can access get() the same way, but get_format method redirects to format_stock_response.
-#### So as you can see the get_format method can be a nice way to control the formats based on the path you've specified
+###Controllbility
+If we set path = stocks we still can access get() the same way, but get_format method redirects to format_stock_response.
+So as you can see the get_format method can be a nice way to control the formats based on the path you've specified
 
