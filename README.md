@@ -1,7 +1,15 @@
 # 🌴palmy-python
+#API, Code/Repo will be fully published 2023
 
 This library allows you to quickly and easily use the Palmy-investing Web API via Python.
-Currently in progress. API, Code/Repo will be fully published 2023
+Currently in progress. 
+
+
+
+## Quick install
+
+
+## Requirements
 
 ## Ambinition
 Firstly easier API usability. Thats why this SDK can prevent errors before you request the data. <br>
