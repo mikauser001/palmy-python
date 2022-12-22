@@ -88,7 +88,7 @@ def get_format(self, *args):
 @staticmethod
 def format_stock_response(response, *args, **kwargs):
   """
-  New method for exclusively handling the 'stocks' path return format
+  New method 
   """
   return response.status_code
   
