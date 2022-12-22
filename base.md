@@ -31,8 +31,8 @@ client = PalmyClient(
 You should almost always keep your tokens secure via environment variables. 
 For using this snippet make sure to overwrite SET_YOUR_TOKEN or set my_api_token in a .env file.
 
-## Methods
-##### GET
+## Request Methods
+#### GET
 ```python
 response = client.get()
 
@@ -65,7 +65,7 @@ class MyResponseBaseClient(PalmyClient):
     """A test client for handling requests and responses"""
 
     path = "quotes"
-    token = "e1348bba9d13df0baf11834b26406b063b8c825f2ba3c054a4da4d96534a473a"
+    token = example_token
 
     def __init__(self):
         """
