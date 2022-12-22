@@ -27,6 +27,7 @@ client = PalmyClient(
   path=REPLACE_WITH_YOUR_PATH,
   token=SET_YOUR_TOKEN,
 )
+
 ````
 You should almost always keep your tokens secure via environment variables. 
 For using this snippet make sure to overwrite SET_YOUR_TOKEN or set my_api_token in a .env file.
@@ -135,7 +136,6 @@ x = MyResponseBaseClient()
 x.path = "quotes"
 print(x.get())
 >> {'averagePeRatio': 31.074074074074073, averageEps': 5.98196, 'n_eps': 100,'n_pg_ratio': 54}
-
 x.path = "stocks"
 print(x.get())
 >> 200 OK
@@ -145,3 +145,16 @@ print(x.get())
 If we set path = stocks we still can access get() the same way, but get_format method redirects to format_stock_response.
 So as you can see the get_format method can be a nice way to control the formats based on the path you've specified
 
+# Score
+Each Score object represents a Palmy Score. The method you'd like to use doesnt matter. Therefore you can use your Score object to either update a known Score or create a new one. ####The Score class should always help you to avoid plain error messages when sending an api put/post request. Thats why a subclass of a Score comes with some risk. Before creating subclasses please go through <a href="">this section</a>.
+
+## Creating an instance
+````python
+
+MyScore = Score(
+    components=["IncomeCik", "RatiosDebtRatio", "IncomeEps", "Income", "IncomeSymbol"],
+    math_operators=("+", "-", "/", "*"),
+    stocks=["MSFT", "AAPL"]
+)
+
+``
