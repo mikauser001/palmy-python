@@ -130,8 +130,7 @@ def format(response, meta=False):
 ### GET request with your new client
 If we use .get() with the path "quotes" we receive a dictionary with our averages and their amount of data
 
-```python
-
+```
 x = MyResponseBaseClient()
 x.path = "quotes"
 print(x.get())
