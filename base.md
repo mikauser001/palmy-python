@@ -75,7 +75,7 @@ class MyResponseBaseClient(PalmyClient):
         super().__init__(self.path, self.token)
 ```
 ### Overwriting methods
-#### Since this is a 1:1 copy you will likely expand the default class functionality. Lets create a function that calculates the averages eps and pe ratio values through .format(). You have to add them to the MyResponseBaseClient, or whatever your Client's name is.
+#### You will often expand the default class functionality. Lets create a function that calculates the averages eps and pe ratio values through .format(). You have to add them to the MyResponseBaseClient, or whatever your Client's name is.
 
 ```python
 
@@ -140,5 +140,5 @@ print(x.get())
 ```
 
 #### If we set path = stocks we still can access get() the same way, but get_format method redirects to format_stock_response.
-#### So as you can see the format method can be a nice way to control the workflow when changing the endpoints of your class
+#### So as you can see the get_format method can be a nice way to control the formats based on the path you've specified
 
