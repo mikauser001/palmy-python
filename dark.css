@@ -1,0 +1,142 @@
+:root:root {
+
+  --mdb-body-color: #afafaf;
+  --mdb-body-bg: #121212;
+  --mdb-link-color: #c5eaeded;
+  --mdb-link-hover-color:#fff;
+  --mdb-navbar-color: #c5eaeded !important;
+  --int-body-color-light: #d7d7d7;
+  --int-body-color-input: #1a1f25;
+}
+.navbar, .link-dark {
+    --mdb-navbar-color: #c5eaeded;
+    --mdb-link-color: #c5eaeded;
+}
+
+a.clickme, h6.clickme, b.clickme{
+    color: var(--mdb-body-color) !important;
+}
+
+a.dropdown-btn.nav-link {
+    color: var(--mdb-body-color);
+}
+
+.form-label, -form-text{
+    color: var(--int-body-color-light) !important;
+}
+
+.form-control, .form-select{
+    background-color: var(--int-body-color-input) !important;
+    border-color: transparent !important;
+    color: var(--int-body-color-light) !important;
+}
+
+.nav-tabs, .nav-link {
+    --mdb-nav-tabs-link-color:#fff !important;
+    color: var(--mdb-body-color) !important;
+}
+
+
+
+.list-group {
+    --mdb-list-group-bg: var(--mdb-body-bg) !important;
+    --mdb-list-group-color: var(--mdb-body-color-light) !important;
+}
+
+.nav-pills .nav-link{
+    --mdb-nav-pills-link-hover-bg: rgba(0,0,0,0) !important;
+    --mdb-nav-pills-link-active-bg: #e3ebf721 !important;
+     color: var(--mdb-body-color) !important;
+}
+
+.select2-container--default .select2-selection--single{
+    background-color: var(--int-body-color-input) !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: var(--mdb-navbar-color) !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    color: var(--int-body-color-light) !important;
+
+}
+
+.select2-dropdown{
+    background-color: #333 !important;
+}
+
+.select2-search--dropdown .select2-search__field {
+    background-color: rgb(0 0 0 / 10%) !important;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background-color: rgb(0 0 0 / 10%) !important;
+   color: var(--int-body-color-light) !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background-color: rgb(0 0 0 / 10%) !important;
+}
+
+.formula {
+    padding: 20px;
+    border: 1px solid rgb(0 0 0 / 10%)
+}
+
+.card {
+    --mdb-card-bg: #333 !important;
+}
+h3, h6 {
+    color: #e0e0e0bd !important;
+}
+
+.border-bottom, .border-top, .border-start, .border-end: {
+    color:  rgb(0 0 0 / 32%) !important;
+}
+
+#side_nav {
+    min-width: 250px;
+    max-width: 250px;
+    background: #333;
+}
+
+
+
+@media(max-width: 820px){
+#side_nav{
+    margin-left: -250px;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 1;
+}
+#side_nav.active {
+    margin-left: 0;
+}
+}
+
+.sidebar li a{
+    color: #c5eaeded
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.dropdown-container {
+  display: none;
+  margin-left: 20px;
+}
+
+ .dropdown-btn {
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
