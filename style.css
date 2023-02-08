@@ -1,0 +1,97 @@
+a.muted, h6.muted {
+    text-decoration:none;
+    color:grey;
+    margin-right:19px;
+}
+a.muted:hover {
+    color:black;
+}
+
+a.clickme, h6.clickme, b.clickme {
+    text-decoration:none;
+    color:#0a52ad;
+    margin-right:19px;
+}
+
+h6,h3,h2.matt {
+    color: #6c757d;
+}
+
+
+.col {
+flex: 1 0 0%;
+}
+
+.danger {
+    outline-color: red;
+}
+
+
+body {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  height: 100%;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.formula {
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.125)
+}
+
+
+
+
+.hr-color {
+    background: #000;
+}
+
+#side_nav {
+    min-width: 250px;
+    max-width: 250px;
+    background: #f7f7f7;
+    transition: all 0.2s;
+}
+
+.content {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.sidebar li a{
+    color: #000
+}
+
+@media(max-width: 820px){
+#side_nav{
+    margin-left: -250px;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 1;
+}
+#side_nav.active {
+    margin-left: 0;
+}
+
+}
+
+.dropdown-container {
+  display: none;
+  margin-left: 20px;
+}
+
+ .dropdown-btn {
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
